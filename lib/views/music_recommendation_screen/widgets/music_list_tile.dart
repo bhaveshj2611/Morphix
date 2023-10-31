@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_recommender/models/music.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:music_recommender/music_player.dart';
 
 class MusicListTile extends StatelessWidget {
   final Music music;
@@ -11,26 +11,26 @@ class MusicListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        launchUrl(Uri.parse(music.link));
+      onTap: () async {
+        // launchUrl(Uri.parse(music.link));
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) {
+            return MusicPlayer(
+              music: music,
+            );
+          },
+        ));
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "${index + 1}.",
-              style: const TextStyle(color: Colors.white60),
-            ),
-            const SizedBox(
-              width: 16,
-            ),
             ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: Image.network(
                   music.imageLink,
-                  width: 42,
+                  width: 150,
                 )),
             const SizedBox(
               width: 16,
@@ -54,11 +54,11 @@ class MusicListTile extends StatelessWidget {
                 ],
               ),
             ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.more_horiz_outlined),
-              color: Colors.white,
-            )
+            // IconButton(
+            //   onPressed: () {},
+            //   icon: const Icon(Icons.more_horiz_outlined),
+            //   color: Colors.white,
+            // )
           ],
         ),
       ),

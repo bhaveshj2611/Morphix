@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'views/music_recommendation_screen/music_recommendation_screen.dart';
+import 'package:music_recommender/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MusicRecommendationScreen(),
+      home: const SplashScreen(),
     );
   }
 }

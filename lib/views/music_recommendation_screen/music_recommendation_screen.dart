@@ -41,13 +41,19 @@ class _MusicRecommendationScreenState extends State<MusicRecommendationScreen> {
                 height: 36,
               ),
             ),
-            Text(
-              'Find your best music',
-              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                  ),
+            Center(
+              child: Image.asset(
+                'assets/logo1.png',
+                width: 80,
+              ),
             ),
+            // Text(
+            //   'Find your best music',
+            //   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+            //         color: Colors.white,
+            //         fontWeight: FontWeight.w600,
+            //       ),
+            // ),
             const SizedBox(
               height: 22,
             ),
@@ -67,7 +73,7 @@ class _MusicRecommendationScreenState extends State<MusicRecommendationScreen> {
                       style: const TextStyle(color: Colors.white),
                       decoration: const InputDecoration(
                           border: InputBorder.none,
-                          hintText: "Artist Name",
+                          hintText: "Search by your favourite Artist",
                           hintStyle: TextStyle(
                               color: Colors.white54,
                               fontWeight: FontWeight.w500)),
@@ -99,7 +105,8 @@ class _MusicRecommendationScreenState extends State<MusicRecommendationScreen> {
               value: selectedGenres,
               choiceCheckmark: true,
               choiceStyle: C2ChipStyle.outlined(
-                foregroundStyle: const TextStyle(color: Colors.white54),
+                foregroundStyle:
+                    const TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
                 selectedStyle: const C2ChipStyle(
                   borderColor: Colors.white,
                   foregroundColor: Colors.white,
@@ -134,7 +141,7 @@ class _MusicRecommendationScreenState extends State<MusicRecommendationScreen> {
                     children: [
                       Icon(
                         isSearched ? Icons.warning_amber : Icons.search,
-                        color: Colors.white,
+                        color: Colors.cyan[50],
                         size: MediaQuery.of(context).size.width * 0.3,
                       ),
                       Text(
@@ -145,7 +152,7 @@ class _MusicRecommendationScreenState extends State<MusicRecommendationScreen> {
                         style: Theme.of(context)
                             .textTheme
                             .headlineMedium
-                            ?.copyWith(color: Colors.white),
+                            ?.copyWith(color: Colors.cyan[50]),
                       )
                     ],
                   ),
